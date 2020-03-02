@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Speaker</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/bootstrab/register/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/bootstrab/register/css/style.css">
+</head>
+<body>
+    <%- include("../authentication/navbar.ejs") -%>
+    <div class="main">
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form" action="/speakers/edit" >
+                        <h2 class="form-title">Edit Speaker Data</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="_id" id="id"  placeholder="Speaker ID" style="background-color: rgb(233, 230, 230);"  value="<%=data[0]._id%>" readonly/>
+                        </div>
+                        <div class="form-group">
+                            Full Name<input type="text" class="form-input" name="FullName" id="name" placeholder="Speaker Name" style="background-color: rgb(233, 230, 230);"  value="<%=data[0].FullName%>" readonly />
+                        </div>
+                        <div class="form-group">
+                            Uer Name<input type="text" class="form-input" name="UserName" id="UserName" placeholder="Speaker UserName" value="<%=data[0].UserName%>"/>
+                        </div>
+                        <div class="form-group">
+                            Age<input type="text" class="form-input" name="Age" id="Age" placeholder="Speaker age" value="<%=data[0].Age%>"/>
+                        </div>
+                
+                        <p >Speaker Address</p>
+                        <div class="form-group">
+                            City<input type="text" class="form-input" name="Address.city" id="name" placeholder="Speaker City" value="<%=data[0].Address.city%>"/>
+                        </div>
+                        <div class="form-group">
+                            Street<input type="text" class="form-input" name="Address.street" id="street" placeholder="Speaker Street" value="<%=data[0].Address.street%>"/>
+                        </div>
+                        <div class="form-group">
+                            Building<input type="text" class="form-input" name="Address.building" id="building" placeholder="Speaker Building" value="<%=data[0].Address.building%>"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    <%- include("../authentication/footer.ejs") -%>
+    <!-- JS -->
+    <script src="/bootstrab/register/vendor/jquery/jquery.min.js"></script>
+    <script src="/bootstrab/register/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

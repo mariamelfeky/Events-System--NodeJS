@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Event List</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="/bootstrab/Table_Fixed/images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css"
+		href="/bootstrab/Table_Fixed/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/bootstrab/Table_Fixed/css/main.css">
+	<!--===============================================================================================-->
+</head>
+
+<body>
+	<%- include("../authentication/navbar.ejs") -%>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="table100 ver1">
+				
+				<div class="wrap-table100-nextcols js-pscroll">
+					<div class="table100-nextcols">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column2">#</th>
+									<th class="cell100 column3">Name</th>
+									<th class="cell100 column3">Event Date</th>
+									<th class="cell100 column4">main speaker</th>
+									<th class="cell100 column4">other speakers</th>
+									<th class="cell100 column5">Edite</th>
+									<th class="cell100 column6">Delete</th>
+								</tr>
+							</thead>
+							<tbody>
+								<%data.forEach((item)=>{
+									%>
+								<tr class="row100 body " >
+									<td class="cell100 column2"><%=item._id%></td>
+									<td class="cell100 column2"><%=item.title%></td>
+									<td class="cell100 column2"><%=item.eventDate%></td>
+
+									<%if(item.mainSpeaker != null){%>
+									<td class="cell100 column3"><%=item.mainSpeaker.UserName %></td>
+									<%} 
+									else{%>
+										<td class="cell100 column2" style="color: rgb(245, 94, 94);">Not have main speaker</td>
+									<%}
+									if(item.otherSpeakers != null){%>
+										<td class="cell100 column4"><%item.otherSpeakers.forEach((speaker)=>{%>
+											<pre><%=speaker.UserName%></pre>
+										<%}) %></td>										<%} 
+										else{%>
+											<td class="cell100 column2" style="color: rgb(245, 94, 94);">Not have other speaker</td>
+										<%}
+										%>
+
+									
+									<th class="cell100 column5"><a href="/events/edit/<%=item._id%>">
+										<button class="btn btn-primary">Edit</button></a></th>		
+									<th class="cell100 column6"><a href="/events/delete/<%=item._id%>">
+										<button class="btn btn-danger">Delete</button></a></th>
+												
+								</tr>
+							
+								<%} )
+								%>
+
+
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%- include("../authentication/footer.ejs") -%>
+
+
+	<!--===============================================================================================-->
+	<script src="/bootstrab/Table_Fixed/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/bootstrab/Table_Fixed/vendor/bootstrap/js/popper.js"></script>
+	<script src="/bootstrab/Table_Fixed/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/bootstrab/Table_Fixed/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/bootstrab/Table_Fixed/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function () {
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function () {
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function () {
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function () {
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+
+
+
+	</script>
+	<!--===============================================================================================-->
+	<script src="/bootstrab/Table_Fixed/js/main.js"></script>
+
+</body>
+
+</html>

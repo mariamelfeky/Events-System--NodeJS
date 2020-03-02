@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Navbar</title>
+    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <h4 style="color: white;">Speaker</h4>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/speakers/profile">profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="/events/speakerEvent" tabindex="-1" aria-disabled="true">Events</a>
+          </li>
+      </ul>
+      <div style="color: white;">
+        <h3>Welcome <%=locals.Name%></h3>
+      </div>
+    </div>
+  </nav> 
+    <script src="/js/JQuery-3.3.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.js"></script>
+</body>
+</html>
