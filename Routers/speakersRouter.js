@@ -56,7 +56,7 @@ speakersRouter.get("/list",(request,response)=>{
     })
 });//list
 speakersRouter.get("/add",(request,response)=>{
-    response.render("authentication/register");
+    response.render("speakers/speakerAdd");
     
    // response.send("speaker add");
 });

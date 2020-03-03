@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form </title>
+    <title>Add Speaker </title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="/bootstrab/register/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -20,16 +20,16 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" action="/speakers/add" enctype="multipart/form-data">
+                    <form method="POST" id="signup-form" class="signup-form" action="/speakers/add" >
                         <h2 class="form-title">Add new speaker</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="id" id="id" placeholder="Your ID"/>
+                            <input type="text" class="form-input" name="_id" id="id" placeholder="Your ID"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="fullName" id="name" placeholder="Your Name"/>
+                            <input type="text" class="form-input" name="FullName" id="name" placeholder="Your Name"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="userName" id="email" placeholder="Your userName"/>
+                            <input type="text" class="form-input" name="UserName" id="email" placeholder="Your userName"/>
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-input" name="Password" id="password" placeholder="Password"/>
@@ -40,24 +40,21 @@
                         </div> -->
                         <label>Your Address</label>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="city" id="name" placeholder="Your City"/>
+                            <input type="text" class="form-input" name="Address.city" id="name" placeholder="Your City"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="street" id="name" placeholder="Your Street"/>
+                            <input type="text" class="form-input" name="Address.street" id="name" placeholder="Your Street"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="building" id="name" placeholder="Your Building"/>
+                            <input type="text" class="form-input" name="Address.building" id="name" placeholder="Your Building"/>
                         </div>
                         <!-- <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
                             <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                         </div> -->
-                        <label>Profile Image</label>
+                        
                         <div class="form-group">
-                            <input type="file" class="form-input" name="profileImage" id="profileImage" placeholder="Your Building"/>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add"/>
                         </div>
                     </form>
                     <p class="loginhere">
