@@ -22,16 +22,16 @@ authenticationRouter.post("/login",(request,response)=>{
         .then((data)=>{
             console.log(data);
             console.log(data._id);
-         //   if(data!=null){
+            if(data!=null){
                 request.session.role = "user";
                 request.session._id = data._id;
                 console.log(data._id);
                 response.locals.Name = data.UserName;
                 response.redirect("/speakers/profile");
-          //  }
-          //  else{
+            }
+           else{
                 response.redirect("/login");
-          //  }
+            }
         })
         .catch((error)=>{
             console.log(error+"");

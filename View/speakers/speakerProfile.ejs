@@ -1,9 +1,3 @@
-<!-- <%- include("../authentication/navSpeaker.ejs") -%>
-
-<%- include("../authentication/footer.ejs") -%> -->
-
-
-
 
 
 <!DOCTYPE html>
@@ -41,23 +35,43 @@
 				<div class="wrap-table100-nextcols js-pscroll">
 					<div class="table100-nextcols">
 						<table>
+                            <form action="speakers/profile" method="POST">
 							<thead>
-                                <tr class="row100 head">Full Name</tr>
-                                <tr class="row100 head">User Name</tr>
-								<tr class="row100 head">Age</tr>
-								<tr class="row100 head">City</tr>
-                                <tr class="row100 head">Street</tr>
-                                <tr class="row100 head">Building</tr>
+                                <tr class="row100 head"><th>Name</th><td>
+                                     <input type="text" class="form-input" name="FullName" id="name" placeholder="Speaker Name"   value="<%=data.FullName%>"  /></td> </tr>
+                                <tr class="row100 head"><th>User Name</th><td>
+                                     <input type="text" class="form-input" name="UserName" id="UserName" placeholder="Speaker UserName" value="<%=data.UserName%>"/></td></tr>
+								<tr class="row100 head"><th>Age</th><td>
+                                    <input type="text" class="form-input" name="Age" id="Age" placeholder="Speaker age" value=" <%=data.Age%>"/>
+                                   </td></tr>
+                                   <tr class="row100 head"><th>Password</th><td>
+                                    <input type="text" class="form-input" name="Password" id="password" placeholder="Password" value=" <%=data.Password%>" />
+                                </td></tr>
+
+								<tr class="row100 head"><th>City</th><td>
+                                     <input type="text" class="form-input" name="Address.city" id="name" placeholder="Speaker City" value="<%=data.Address.city%>"/>
+                                    </td></tr>
+                                <tr class="row100 head"><th>Street</th><td>
+                                     <input type="text" class="form-input" name="Address.street" id="street" placeholder="Speaker Street" value="<%=data.Address.street%>"/>
+                                    </td></tr>
+                                <tr class="row100 head"><th>Building</th><td>
+                                     <input type="text" class="form-input" name="Address.building" id="building" placeholder="Speaker Building" value="<%=data.Address.building%>"/>
+                                   </td></tr>
+                                   <tr class="row100 head "><td colspan="2" style="text-align: center;"> 
+                                       <input type="submit" name="submit" id="submit" class="form-submit btn-success" value="Update"/>
+                                   </td></tr>
 
 							</thead>
-							<tbody>
-								<%data.forEach((item)=>{
-									%>
-								<tr class="row100 body " >mmm</tr>
+							<!-- <tbody>	
+                                <tr class="row100 body " ></tr>
+                                <tr class="row100 body " ></tr>
+                                <tr class="row100 body " ></tr>
+                                <tr class="row100 body " ></tr>
+                                <tr class="row100 body " ></tr>
+                                <tr class="row100 body " ></tr>
 							
-								<%} )
-								%>
-							</tbody>
+                            </tbody> -->
+                        </form>
 						</table>
 					</div>
 				</div>

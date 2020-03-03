@@ -8,6 +8,7 @@ speakerModel = mongoose.model("speakers");
 speakersRouter.get("/profile",(request,response)=>{
     speakerModel.findOne({_id: request.session._id})
     .then((data)=>{
+        console.log(data);
         response.locals.Name = data.UserName;
         response.render("speakers/speakerProfile",{data});
         //response.send("speaker profile");
@@ -16,6 +17,23 @@ speakersRouter.get("/profile",(request,response)=>{
     })
 
 });//profile
+
+speakersRouter.post("/userEdit",(request,response)=>{
+    speakerModel.update({_id:request.body._id},
+        {$set: request.body
+   }
+       )
+       .then((data)=>{
+           response.redirect("/speakers/speakerProfile",{data});
+          // response.send(data +"Data updated");
+       })
+       .catch((error)=>{
+           console.log(error+"");
+           
+       })
+
+})
+
 
 speakersRouter.use((request,response,next)=>{
     if(request.session.role =="admin"){
@@ -103,6 +121,7 @@ speakersRouter.get("/edit/:id?",(request,response)=>{
     })
    
 });//edite
+
 speakersRouter.post("/edit",(request,response)=>{
     speakerModel.update({_id:request.body._id},
          {$set: request.body

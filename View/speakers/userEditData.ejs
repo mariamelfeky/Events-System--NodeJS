@@ -13,36 +13,36 @@
     <link rel="stylesheet" href="/bootstrab/register/css/style.css">
 </head>
 <body>
-    <%- include("../authentication/navbar.ejs") -%>
+	<%- include("../authentication/navSpeaker.ejs") -%>
     <div class="main">
         <section class="signup">
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" action="/speakers/edit" >
+                    <form method="POST" id="signup-form" class="signup-form" action="/speakers/userEdit" >
                         <h2 class="form-title">Edit Speaker Data</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="_id" id="id"  placeholder="Speaker ID" style="background-color: rgb(233, 230, 230);"  value="<%=data[0]._id%>" readonly/>
+                            <input type="text" class="form-input" name="_id" id="id"  placeholder="Speaker ID" style="background-color: rgb(233, 230, 230);"  value="<%=data._id%>" readonly/>
                         </div>
                         <div class="form-group">
-                            Full Name<input type="text" class="form-input" name="FullName" id="name" placeholder="Speaker Name" style="background-color: rgb(233, 230, 230);"  value="<%=data[0].FullName%>" readonly />
+                            Full Name<input type="text" class="form-input" name="FullName" id="name" placeholder="Speaker Name" style="background-color: rgb(233, 230, 230);"  value="<%=data.FullName%>" readonly />
                         </div>
                         <div class="form-group">
-                            User Name<input type="text" class="form-input" name="UserName" id="UserName" placeholder="Speaker UserName" value="<%=data[0].UserName%>"/>
+                            Uer Name<input type="text" class="form-input" name="UserName" id="UserName" placeholder="Speaker UserName" value="<%=data.UserName%>"/>
                         </div>
                         <div class="form-group">
-                            Age<input type="text" class="form-input" name="Age" id="Age" placeholder="Speaker age" value="<%=data[0].Age%>"/>
+                            Age<input type="text" class="form-input" name="Age" id="Age" placeholder="Speaker age" value="<%=data.Age%>"/>
                         </div>
                 
                         <p >Speaker Address</p>
                         <div class="form-group">
-                            City<input type="text" class="form-input" name="Address.city" id="name" placeholder="Speaker City" value="<%=data[0].Address.city%>"/>
+                            City<input type="text" class="form-input" name="Address.city" id="name" placeholder="Speaker City" value="<%=data.Address.city%>"/>
                         </div>
                         <div class="form-group">
-                            Street<input type="text" class="form-input" name="Address.street" id="street" placeholder="Speaker Street" value="<%=data[0].Address.street%>"/>
+                            Street<input type="text" class="form-input" name="Address.street" id="street" placeholder="Speaker Street" value="<%=data.Address.street%>"/>
                         </div>
                         <div class="form-group">
-                            Building<input type="text" class="form-input" name="Address.building" id="building" placeholder="Speaker Building" value="<%=data[0].Address.building%>"/>
+                            Building<input type="text" class="form-input" name="Address.building" id="building" placeholder="Speaker Building" value="<%=data.Address.building%>"/>
                         </div>
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Update"/>

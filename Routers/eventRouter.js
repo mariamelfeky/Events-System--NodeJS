@@ -28,6 +28,7 @@ eventRouter.get("/speakerEvent",(request,response)=>{
 eventRouter.use((request,response,next)=>{
     if(request.session.role == "admin"){
         response.locals.Name ="Mariam";
+        next();
     }
     else{
         response.redirect("/login");
@@ -36,10 +37,10 @@ eventRouter.use((request,response,next)=>{
 
 
 eventRouter.get("/list",(request,response)=>{
-   
+    console.log("data");
    eventModel.find({}).populate({path:"mainSpeaker otherSpeakers"})
    .then((data)=>{
-       //console.log(data[0]);
+       console.log(data);
         response.render("events/eventlist",{data});
        //response.send(data);
    }).catch((error)=>{
@@ -95,7 +96,8 @@ eventRouter.get("/edit/:id?",(request,response)=>{
 });
 
 eventRouter.post("/edit",(request,response)=>{
-    eventModel.updata({_id:request.body._id},{$set:
+    console.log(request.body);
+    eventModel.updateOne({_id:request.body._id},{$set:
         request.body
 }
     ).then((data)=>{
